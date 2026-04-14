@@ -11,7 +11,7 @@
             align-items: start;
         }
 
-        /* Flight info card */
+        /* Kartu informasi penerbangan */
         .fi-card {
             background: var(--surface);
             border: 1.5px solid var(--border);
@@ -52,7 +52,7 @@
             padding: 1.5rem;
         }
 
-        /* Route strip */
+        /* Jalur rute */
         .route-strip {
             display: flex;
             align-items: center;
@@ -103,7 +103,7 @@
             color: var(--r-400);
         }
 
-        /* Detail grid */
+        /* Kisi detail */
         .detail-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -130,7 +130,7 @@
             color: var(--n-900);
         }
 
-        /* Summary card */
+        /* Kartu ringkasan */
         .sum-card {
             background: var(--surface);
             border: 1.5px solid var(--border);
@@ -160,7 +160,7 @@
             gap: 1.25rem;
         }
 
-        /* Seat counter */
+        /* Pengatur jumlah kursi */
         .seat-section {
             display: flex;
             flex-direction: column;
@@ -233,7 +233,7 @@
             color: var(--n-400);
         }
 
-        /* Total box */
+        /* Kotak total */
         .total-box {
             background: var(--r-50);
             border-radius: 0.875rem;
@@ -258,7 +258,7 @@
             line-height: 1.1;
         }
 
-        /* Submit */
+        /* Tombol kirim */
         .submit-btn {
             width: 100%;
             padding: 0.875rem;
@@ -313,7 +313,7 @@
 
     <div class="bk-wrap">
 
-        <!-- Flight info -->
+        <!-- Informasi penerbangan -->
         <div class="fi-card">
             <div class="fi-card-head">
                 <h2>Detail Penerbangan</h2>
@@ -368,7 +368,7 @@
             </div>
         </div>
 
-        <!-- Summary & form -->
+        <!-- Ringkasan dan formulir -->
         <div class="sum-card">
             <div class="sum-head">
                 <h3>Rincian Pembayaran</h3>

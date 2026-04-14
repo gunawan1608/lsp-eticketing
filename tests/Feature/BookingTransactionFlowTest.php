@@ -75,7 +75,6 @@ class BookingTransactionFlowTest extends TestCase
                 'payer_email' => 'customer@example.com',
                 'payer_phone' => '081234567890',
                 'payment_method' => 'Transfer Bank BCA',
-                'payer_account_number' => '1234567890123',
                 'notes' => 'Transfer via mobile banking',
                 'payment_proof' => UploadedFile::fake()->image('proof.jpg'),
             ]);
@@ -87,7 +86,7 @@ class BookingTransactionFlowTest extends TestCase
         $this->assertEquals(Booking::STATUS_WAITING_APPROVAL, $booking->status);
         $this->assertEquals(Transaction::STATUS_WAITING_APPROVAL, $booking->transaction->payment_status);
         $this->assertNotNull($booking->transaction->paid_at);
-        $this->assertSame('1234567890123', $booking->transaction->payer_account_number);
+        $this->assertNull($booking->transaction->payer_account_number);
         $this->assertNotNull($booking->transaction->payment_proof_path);
         Storage::disk('public')->assertExists($booking->transaction->payment_proof_path);
 

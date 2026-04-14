@@ -7,7 +7,6 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
 
 class TransactionController extends Controller
 {
@@ -41,12 +40,6 @@ class TransactionController extends Controller
             'payer_email' => ['required', 'email', 'max:255'],
             'payer_phone' => ['required', 'string', 'max:30'],
             'payment_method' => ['required', 'string', 'max:100'],
-            'payer_account_number' => [
-                Rule::requiredIf(fn () => str_starts_with((string) $request->input('payment_method'), 'Transfer Bank')),
-                'nullable',
-                'string',
-                'max:50',
-            ],
             'notes' => ['nullable', 'string', 'max:1000'],
             'payment_proof' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ]);
@@ -62,7 +55,6 @@ class TransactionController extends Controller
             'payer_email' => $validated['payer_email'],
             'payer_phone' => $validated['payer_phone'],
             'payment_method' => $validated['payment_method'],
-            'payer_account_number' => $validated['payer_account_number'] ?? null,
             'notes' => $validated['notes'] ?? null,
             'payment_proof_path' => $paymentProofPath,
             'payment_proof_original_name' => $request->file('payment_proof')->getClientOriginalName(),
@@ -76,7 +68,7 @@ class TransactionController extends Controller
 
         return redirect()
             ->route('booking.ticket', $booking)
-            ->with('success', 'Konfirmasi pembayaran berhasil dikirim. Menunggu approval admin.');
+            ->with('success', 'Konfirmasi pembayaran berhasil dikirim. Menunggu persetujuan admin.');
     }
 
     private function authorizeBookingOwner(Booking $booking): void

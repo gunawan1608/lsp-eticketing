@@ -46,7 +46,7 @@
             line-height: 1.15;
         }
 
-        /* Search */
+        /* Pencarian */
         .search-wrap {
             display: flex;
             align-items: center;
@@ -119,7 +119,7 @@
             color: var(--r-600);
         }
 
-        /* Flight list */
+        /* Daftar penerbangan */
         .fl-list {
             display: flex;
             flex-direction: column;
@@ -144,7 +144,7 @@
             transform: translateY(-1px);
         }
 
-        /* Flight info */
+        /* Informasi penerbangan */
         .fi-plane {
             display: flex;
             align-items: center;
@@ -185,7 +185,7 @@
             white-space: nowrap;
         }
 
-        /* Time */
+        /* Waktu */
         .fi-time {
             text-align: right;
         }
@@ -208,7 +208,7 @@
             margin-top: 0.1rem;
         }
 
-        /* Price */
+        /* Harga */
         .fi-price {
             text-align: right;
             min-width: 110px;
@@ -228,7 +228,7 @@
             white-space: nowrap;
         }
 
-        /* Action */
+        /* Aksi */
         .fi-action {
             display: flex;
             flex-direction: column;
@@ -273,7 +273,7 @@
             border: 1px solid var(--n-200);
         }
 
-        /* Booking button */
+        /* Tombol pemesanan */
         .book-btn {
             display: inline-flex;
             align-items: center;
@@ -382,7 +382,7 @@
             <input type="text" name="search" class="search-input" value="{{ $search ?? '' }}"
                 placeholder="Cari pesawat, asal, atau tujuan">
             @if(filled($search ?? ''))
-                <a href="{{ route('dashboard') }}" class="reset-link">Reset</a>
+                <a href="{{ route('dashboard') }}" class="reset-link">Atur Ulang</a>
             @endif
             <button type="submit" class="search-btn">Cari</button>
         </div>

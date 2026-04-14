@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
 {
-    // Form tambah jadwal
+    // Halaman tambah jadwal
     public function create()
     {
         return view('admin.schedules.create');
@@ -21,14 +21,14 @@ class ScheduleController extends Controller
         return redirect('/dashboard');
     }
 
-    // Form edit jadwal
+    // Halaman ubah jadwal
     public function edit($id)
     {
         $schedule = Schedule::findOrFail($id);
         return view('admin.schedules.edit', compact('schedule'));
     }
 
-    // Update jadwal
+    // Perbarui jadwal
     public function update(Request $request, $id)
     {
         $schedule = Schedule::findOrFail($id);

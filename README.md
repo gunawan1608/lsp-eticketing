@@ -1,58 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# LSP-eTicketing
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
 </p>
 
-## About Laravel
+## Deskripsi Proyek
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+LSP E-Ticketing adalah platform pemesanan tiket modern yang dirancang khusus untuk Lembaga Sertifikasi Profesi (LSP). Aplikasi ini dibangun menggunakan framework **Laravel** dan **Tailwind CSS**, menampilkan desain "Office Web" bertema merah yang profesional, bersih, dan konsisten (menggunakan tipografi Poppins dan elemen *glassmorphism*).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Aplikasi ini mendukung alur kerja manajemen pemesanan secara penuh, mulai dari pembelian tiket oleh pelanggan, pengunggahan bukti pembayaran, hingga persetujuan manual oleh admin.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fitur Utama
 
-## Learning Laravel
+- **Role-Based Access Control (RBAC)**
+  Aplikasi memiliki dua level akses utama:
+  - **Pelanggan (Customer):** Dapat melihat jadwal e-ticketing, melakukan pemesanan (booking), mengunggah bukti pembayaran, melihat riwayat pemesanan, serta mencetak e-ticket.
+  - **Administrator:** Memiliki akses ke *dashboard* *back-office* untuk mengelola jadwal (CRUD), memverifikasi dan menyetujui transaksi pemesanan (mengubah status *Pending* ke *Lunas*), serta melihat bukti pembayaran.
+  
+- **Alur Kerja Pembayaran Berbasis Persetujuan (Approval System)**
+  Setiap pemesanan akan berstatus *Pending* dan memerlukan tinjauan administratif terhadap bukti pembayaran sebelum tiket dinyatakan valid dan siap dicetak.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Antarmuka Pengguna (UI) Modern & Responsif**
+  Desain *frontend* aplikasi sepenuhnya mengadopsi standar modern dengan pendekatan estetika "*Office Web*". Mendukung fitur animatif interaktif, palet warna elegan, dan fungsionalitas mulus di berbagai perangkat.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Teknologi yang Digunakan
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- **Backend:** [Laravel](https://laravel.com/) (PHP)
+- **Frontend:** HTML, Blade Templates, Vanilla JS
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) & Vanilla CSS *custom utilities*
+- **Bundler:** Vite
+- **Database:** MySQL / SQLite / PostgreSQL (sesuai konfigurasi `.env`)
 
-## Agentic Development
+---
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Panduan Instalasi & Menjalankan Aplikasi Lokal
 
-```bash
-composer require laravel/boost --dev
+Ikuti langkah-langkah di bawah ini untuk menginstal dan menjalankan aplikasi di komputer lokal (Local Development).
 
-php artisan boost:install
-```
+### Persyaratan Sistem
+- PHP >= 8.3
+- Composer
+- Node.js & npm (untuk Vite dan Tailwind CSS)
+- Database Server (seperti MySQL, SQLite, dll.)
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Langkah Instalasi
 
-## Contributing
+1. **Kloning Repositori (Jika belum)**
+   ```bash
+   git clone https://github.com/username/lsp-eticketing.git
+   cd lsp-eticketing
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Instalasi Dependensi PHP**
+   Jalankan perintah berikut untuk menginstal semua *library* backend:
+   ```bash
+   composer install
+   ```
 
-## Code of Conduct
+3. **Instalasi Dependensi Frontend**
+   Jalankan npm untuk menginstal library Javascript dan Tailwind CSS:
+   ```bash
+   npm install
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **Konfigurasi Environment Variable (.env)**
+   Salin file konfigurasi bawaan dan sesuaikan kredensial database Anda (DB_DATABASE, DB_USERNAME, DB_PASSWORD).
+   ```bash
+   cp .env.example .env
+   ```
 
-## Security Vulnerabilities
+5. **Generate Application Key**
+   ```bash
+   php artisan key:generate
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. **Jalankan Migrasi Database (dan Seeder)**
+   Hal ini untuk membuat tabel-tabel penting dalam database. Jika ada seeder (data *dummy*), gunakan flag `--seed`.
+   ```bash
+   php artisan migrate --seed
+   ```
 
-## License
+7. **Kompilasi Aset Frontend (Tailwind CSS/Vite)**
+   Anda perlu mem-build aset frontend saat produksi, atau menjalankannya dalam mode *watch* saat pengembangan.
+   ```bash
+   npm run build
+   # ATAU untuk development otomatis
+   # npm run dev
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+8. **Nyalakan Development Server Laravel**
+   ```bash
+   php artisan serve
+   ```
+   Aplikasi Anda kini bisa diakses melalui web browser pada: `http://localhost:8000`
+
+## Kontribusi
+
+Bagi pihak/developer yang ingin berkontribusi dalam perbaikan bug (_bug fixes_), pembaruan (_updates_), maupun perancangan fitur baru, Anda dapat melakukan _pull requests_ dengan mengacu pada standar koding Laravel dan memastikan integrasi estetika antarmuka tidak rusak.
+
+## Lisensi
+
+[MIT License](https://opensource.org/licenses/MIT). Silahkan merujuk pada file `LICENSE` (jika tersedia) untuk ketentuan lebih detail penggunaan *framework* yang diusung.

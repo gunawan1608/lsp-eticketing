@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Jadwal — E-Ticket Pro')
+@section('title', 'Ubah Jadwal - E-Ticket Pro')
 
 @section('content')
 
@@ -10,7 +10,7 @@
             <line x1="19" y1="12" x2="5" y2="12" />
             <polyline points="12 19 5 12 12 5" />
         </svg>
-        Dashboard Admin
+        Dasbor Admin
     </a>
 
     <div class="form-card">
@@ -24,7 +24,7 @@
                     </svg>
                 </div>
                 <div>
-                    <div class="card-title">Edit Jadwal</div>
+                    <div class="card-title">Ubah Jadwal</div>
                     <div style="font-size:12px;color:var(--ink-5);margin-top:1px;">{{ $schedule->plane_name }}</div>
                 </div>
             </div>
@@ -41,12 +41,12 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="origin">Asal (Origin)</label>
+                        <label class="form-label" for="origin">Asal</label>
                         <input type="text" id="origin" name="origin" class="form-control" value="{{ $schedule->origin }}"
                             required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="destination">Tujuan (Destination)</label>
+                        <label class="form-label" for="destination">Tujuan</label>
                         <input type="text" id="destination" name="destination" class="form-control"
                             value="{{ $schedule->destination }}" required>
                     </div>

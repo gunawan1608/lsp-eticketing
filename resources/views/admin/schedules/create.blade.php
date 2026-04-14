@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tambah Jadwal — E-Ticket Pro')
+@section('title', 'Tambah Jadwal - E-Ticket Pro')
 
 @section('content')
 
@@ -31,12 +31,12 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="origin">Asal (Origin)</label>
+                        <label class="form-label" for="origin">Asal</label>
                         <input type="text" id="origin" name="origin" class="form-control" placeholder="Jakarta (CGK)"
                             required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="destination">Tujuan (Destination)</label>
+                        <label class="form-label" for="destination">Tujuan</label>
                         <input type="text" id="destination" name="destination" class="form-control" placeholder="Bali (DPS)"
                             required>
                     </div>
@@ -63,7 +63,7 @@
             <div class="form-footer">
                 <button type="submit" class="btn btn-primary" style="padding: 0 1.75rem; height:36px;">Simpan
                     Jadwal</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
+                <button type="reset" class="btn btn-secondary">Atur Ulang</button>
             </div>
         </form>
     </div>

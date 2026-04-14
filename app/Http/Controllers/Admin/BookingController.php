@@ -8,7 +8,7 @@ use App\Models\Transaction;
 
 class BookingController extends Controller
 {
-    // Approve booking
+    // Setujui pemesanan
     public function approve(Booking $booking)
     {
         $booking->loadMissing('transaction');
@@ -18,7 +18,7 @@ class BookingController extends Controller
         }
 
         if (! $booking->transaction->isAwaitingApproval()) {
-            return back()->with('error', 'Transaksi ini belum dikonfirmasi oleh customer.');
+            return back()->with('error', 'Transaksi ini belum dikonfirmasi oleh pelanggan.');
         }
 
         if (! $booking->transaction->hasPaymentProof()) {

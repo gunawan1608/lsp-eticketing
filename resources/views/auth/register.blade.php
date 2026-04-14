@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Daftar Akun — E-Ticket Pro')
+@section('title', 'Daftar Akun - E-Ticket Pro')
 
 @section('content')
 
@@ -12,7 +12,7 @@
             Kembali ke Beranda
         </a>
 
-        {{-- ── Visual panel ── --}}
+        {{-- Panel visual --}}
         <div class="auth-visual">
             <div class="auth-visual__bg"></div>
             <div class="auth-visual__overlay"></div>
@@ -35,7 +35,7 @@
                 </div>
                 <h2 class="auth-visual__headline">
                     Mulai Perjalanan<br>
-                    <em>Anda Hari Ini ✈</em>
+                    <em>Anda Hari Ini</em>
                 </h2>
                 <p class="auth-visual__desc">
                     Daftar dalam hitungan detik. Temukan ribuan rute penerbangan dengan harga transparan dan konfirmasi
@@ -58,7 +58,7 @@
             </div>
         </div>
 
-        {{-- ── Form panel ── --}}
+        {{-- Panel formulir --}}
         <div class="auth-form-side">
             <div class="auth-form-container">
 
@@ -148,7 +148,7 @@
                             <input type="password" id="password" name="password"
                                 class="auth-input @error('password') is-error @enderror" placeholder="Buat kata sandi kuat"
                                 required autocomplete="new-password">
-                            <button type="button" class="auth-toggle-pw" id="toggle-pw" aria-label="Tampilkan password">
+                            <button type="button" class="auth-toggle-pw" id="toggle-pw" aria-label="Tampilkan kata sandi">
                                 <svg class="pw-show" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">

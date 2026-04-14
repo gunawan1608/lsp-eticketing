@@ -9,7 +9,7 @@
     <div class="lp-hero__content">
         <div class="lp-hero__badge">
             <span class="lp-hero__badge-dot"></span>
-            Platform E-Ticketing Terpercaya
+            Platform E-Tiket Terpercaya
         </div>
 
         <h1 class="lp-hero__title">
@@ -27,7 +27,7 @@
                 @if(Auth::user()->isAdmin())
                     <a href="{{ url('/dashboard') }}" class="lp-btn lp-btn--primary" id="hero-cta-admin">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                        Buka Dashboard Admin
+                        Buka Dasbor Admin
                     </a>
                 @else
                     <a href="{{ url('/dashboard') }}" class="lp-btn lp-btn--primary" id="hero-cta-book">

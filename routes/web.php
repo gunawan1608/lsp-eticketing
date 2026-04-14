@@ -8,7 +8,7 @@ use App\Http\Controllers\TransactionController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-// Guest: Welcome, Login & Register
+// Tamu: Beranda, Masuk, dan Daftar
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -41,4 +41,5 @@ Route::middleware(['auth', 'role:' . User::ROLE_ADMIN])->group(function () {
     Route::get('/admin/schedules/delete/{id}', [AdminScheduleController::class, 'destroy']);
 
     Route::post('/admin/bookings/approve/{booking}', [AdminBookingController::class, 'approve'])->name('admin.bookings.approve');
+    Route::get('/admin/transactions/{transaction}/proof', [AdminBookingController::class, 'paymentProof'])->name('admin.transactions.proof');
 });

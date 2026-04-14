@@ -28,7 +28,7 @@
             margin: 0;
         }
 
-        /* Ticket card */
+        /* Kartu tiket */
         .tkt-card {
             background: var(--surface);
             border: 1.5px solid var(--border);
@@ -96,7 +96,7 @@
             justify-content: flex-end;
         }
 
-        /* Route */
+        /* Rute */
         .route-disp {
             display: flex;
             align-items: center;
@@ -139,7 +139,7 @@
             color: var(--r-400);
         }
 
-        /* Meta grid */
+        /* Kisi informasi */
         .tkt-body {
             padding: 1.5rem;
         }
@@ -174,7 +174,7 @@
             color: var(--n-900);
         }
 
-        /* Badges */
+        /* Lencana */
         .tb {
             display: inline-flex;
             align-items: center;
@@ -215,7 +215,7 @@
             border: 1px solid #bfdbfe;
         }
 
-        /* Status sidebar */
+        /* Bilah samping status */
         .status-card {
             background: var(--surface);
             border: 1.5px solid var(--border);
@@ -242,7 +242,7 @@
             padding: 1.25rem 1.5rem;
         }
 
-        /* Steps */
+        /* Tahapan */
         .steps {
             display: flex;
             flex-direction: column;
@@ -324,7 +324,7 @@
             font-weight: 600;
         }
 
-        /* CTA */
+        /* Ajakan tindakan */
         .sc-cta {
             padding: 0 1.5rem 1.5rem;
             display: flex;
@@ -507,14 +507,14 @@
                         {{ number_format($booking->total_price, 0, ',', '.') }}</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Waktu Order</span>
+                    <span class="meta-label">Waktu Pemesanan</span>
                     <span class="meta-value">{{ $booking->created_at->format('d M Y, H:i') }}</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Status sidebar -->
+    <!-- Bilah samping status -->
     <div class="status-card">
         <div class="sc-head">
             <h3>Status Pemesanan</h3>
@@ -524,7 +524,7 @@
                 <div class="step done">
                     <div class="step-dot"></div>
                     <div class="step-text">
-                        <div class="step-title">Order dibuat</div>
+                        <div class="step-title">Pesanan dibuat</div>
                     </div>
                 </div>
                 <div class="step {{ $transaction?->isUnpaid() ? 'active' : ($transaction ? 'done' : '') }}">

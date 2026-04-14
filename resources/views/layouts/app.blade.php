@@ -15,7 +15,7 @@
 
     <style>
         /* ═══════════════════════════════════════════
-           DESIGN TOKENS
+           TOKEN DESAIN
         ═══════════════════════════════════════════ */
         :root {
             --red: #e11d48;
@@ -62,7 +62,7 @@
             --shadow-md: 0 4px 16px rgba(0, 0, 0, .10);
             --shadow-red: 0 4px 16px rgba(225, 29, 72, .18);
 
-            /* Compatibility tokens for refreshed customer/admin views */
+            /* Token kompatibilitas untuk tampilan pelanggan/admin yang diperbarui */
             --r-50: var(--red-faint);
             --r-100: var(--red-muted);
             --r-200: #fecdd3;
@@ -99,7 +99,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           RESET & BASE
+           RESET & DASAR
         ═══════════════════════════════════════════ */
         *,
         *::before,
@@ -136,7 +136,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           TOPBAR / NAV
+           BILAH ATAS / NAVIGASI
         ═══════════════════════════════════════════ */
         .topbar {
             position: sticky;
@@ -159,7 +159,7 @@
             gap: 1rem;
         }
 
-        /* Brand */
+        /* Merek */
         .topbar-brand {
             display: flex;
             align-items: center;
@@ -194,7 +194,7 @@
             color: var(--red);
         }
 
-        /* Nav links */
+        /* Tautan navigasi */
         .topbar-nav {
             display: flex;
             align-items: center;
@@ -240,7 +240,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           BUTTONS
+           TOMBOL
         ═══════════════════════════════════════════ */
         .btn {
             display: inline-flex;
@@ -307,7 +307,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           LAYOUT
+           TATA LETAK
         ═══════════════════════════════════════════ */
         .main-content {
             max-width: var(--content-w);
@@ -316,7 +316,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           ALERTS
+           PERINGATAN
         ═══════════════════════════════════════════ */
         .alert {
             display: flex;
@@ -368,7 +368,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           PAGE HEADER
+           KEPALA HALAMAN
         ═══════════════════════════════════════════ */
         .page-header {
             display: flex;
@@ -393,7 +393,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           STAT CARDS
+           KARTU STATISTIK
         ═══════════════════════════════════════════ */
         .stat-grid {
             display: grid;
@@ -472,7 +472,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           CARD
+           KARTU
         ═══════════════════════════════════════════ */
         .card {
             background: var(--white);
@@ -496,7 +496,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           TABLE
+           TABEL
         ═══════════════════════════════════════════ */
         .table-wrap {
             overflow-x: auto;
@@ -535,7 +535,7 @@
             background: var(--stone-1);
         }
 
-        /* Table helpers */
+        /* Bantuan tabel */
         .td-main {
             display: block;
             font-weight: 600;
@@ -630,7 +630,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           TOOLBAR
+           BILAH ALAT
         ═══════════════════════════════════════════ */
         .toolbar {
             padding: .75rem 1.25rem;
@@ -653,7 +653,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           FORMS
+           FORMULIR
         ═══════════════════════════════════════════ */
         .form-card {
             background: var(--white);
@@ -747,7 +747,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           BACK LINK
+           TAUTAN KEMBALI
         ═══════════════════════════════════════════ */
         .back-link {
             display: inline-flex;
@@ -765,7 +765,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           EMPTY STATE
+           KONDISI KOSONG
         ═══════════════════════════════════════════ */
         .empty-state {
             display: flex;
@@ -792,7 +792,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           PAGINATION
+           PAGINASI
         ═══════════════════════════════════════════ */
         .pager {
             display: flex;
@@ -852,7 +852,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           ADMIN SPECIFIC
+           KHUSUS ADMIN
         ═══════════════════════════════════════════ */
         .btn-icon-edit {
             background: var(--info-bg);
@@ -927,7 +927,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           UTILITIES
+           UTILITAS
         ═══════════════════════════════════════════ */
         .text-sm {
             font-size: 12px;
@@ -1002,7 +1002,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           ID CHIP
+           LABEL ID
         ═══════════════════════════════════════════ */
         .id-chip {
             display: inline-flex;
@@ -1019,7 +1019,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           BADGE-STACK
+           TUMPUKAN LENCANA
         ═══════════════════════════════════════════ */
         .badge-stack {
             display: flex;
@@ -1066,7 +1066,7 @@
                 @auth
                     @if(Auth::user()->isAdmin())
                         <a href="{{ url('/dashboard') }}"
-                            class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}">Dashboard</a>
+                            class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}">Dasbor</a>
                         <a href="{{ url('/admin/schedules/create') }}"
                             class="nav-link {{ Request::is('admin/schedules/create') ? 'active' : '' }}">Tambah Jadwal</a>
                     @else
@@ -1076,7 +1076,7 @@
                             class="nav-link {{ Request::is('history') ? 'active' : '' }}">Riwayat</a>
                     @endif
                     <div class="nav-sep"></div>
-                    <span class="nav-greeting">{{ Auth::user()->name ?? 'Customer' }}</span>
+                    <span class="nav-greeting">{{ Auth::user()->name ?? 'Pelanggan' }}</span>
                     <a href="{{ url('/logout') }}" class="btn btn-secondary btn-sm" style="margin-left:4px;">Keluar</a>
                 @else
                     <a href="{{ url('/login') }}" class="nav-link">Masuk</a>

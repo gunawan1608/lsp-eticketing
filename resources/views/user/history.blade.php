@@ -42,7 +42,7 @@
             line-height: 1.15;
         }
 
-        /* Search */
+        /* Pencarian */
         .search-wrap {
             display: flex;
             align-items: center;
@@ -115,7 +115,7 @@
             color: var(--r-600);
         }
 
-        /* Order list */
+        /* Daftar pesanan */
         .order-list {
             display: flex;
             flex-direction: column;
@@ -144,7 +144,7 @@
             align-items: center;
         }
 
-        /* Route */
+        /* Rute */
         .or-route {
             display: flex;
             align-items: center;
@@ -165,7 +165,7 @@
             align-items: center;
         }
 
-        /* Meta */
+        /* Informasi tambahan */
         .or-meta {
             min-width: 0;
         }
@@ -190,7 +190,7 @@
             white-space: nowrap;
         }
 
-        /* Right */
+        /* Sisi kanan */
         .or-right {
             display: flex;
             flex-direction: column;
@@ -214,7 +214,7 @@
             justify-content: flex-end;
         }
 
-        /* Foot */
+        /* Bagian bawah */
         .order-foot {
             padding: 0.75rem 1.5rem;
             background: var(--n-50);
@@ -236,7 +236,7 @@
             gap: 0.5rem;
         }
 
-        /* Badges */
+        /* Lencana */
         .ob {
             display: inline-flex;
             align-items: center;
@@ -277,7 +277,7 @@
             border: 1px solid var(--n-200);
         }
 
-        /* Action buttons */
+        /* Tombol aksi */
         .act-btn {
             display: inline-flex;
             align-items: center;
@@ -315,7 +315,7 @@
             color: var(--r-600);
         }
 
-        /* Empty */
+        /* Kondisi kosong */
         .empty-box {
             text-align: center;
             padding: 4rem 2rem;
@@ -391,7 +391,7 @@
             <input type="text" name="search" class="search-input" value="{{ $search ?? '' }}"
                 placeholder="Cari tiket, pesawat, atau status">
             @if(filled($search ?? ''))
-                <a href="{{ route('booking.history') }}" class="reset-link">Reset</a>
+                <a href="{{ route('booking.history') }}" class="reset-link">Atur Ulang</a>
             @endif
             <button type="submit" class="search-btn">Cari</button>
         </div>

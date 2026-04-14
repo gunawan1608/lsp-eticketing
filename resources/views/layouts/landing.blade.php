@@ -23,7 +23,7 @@
 
     <header class="lp-nav" role="banner">
         <div class="lp-nav__inner">
-            <a href="{{ url('/') }}" class="lp-nav__brand" aria-label="E-Ticket Pro Home">
+            <a href="{{ url('/') }}" class="lp-nav__brand" aria-label="Beranda E-Ticket Pro">
                 <div class="lp-nav__logo-mark" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">

@@ -43,6 +43,14 @@ class Transaction extends Model
         return $this->belongsTo(Booking::class);
     }
 
+    public function getPaymentMethodAttribute(?string $value): ?string
+    {
+        return match ($value) {
+            'QRIS / E-Wallet' => 'QRIS / Dompet Digital',
+            default => $value,
+        };
+    }
+
     public function getPaymentStatusBadgeClassAttribute(): string
     {
         return match ($this->payment_status) {
@@ -83,6 +91,6 @@ class Transaction extends Model
             return null;
         }
 
-        return Storage::disk('public')->url($this->payment_proof_path);
+        return asset('storage/' . $this->payment_proof_path);
     }
 }

@@ -1,6 +1,6 @@
 /* ==========================================================================
-   AUTH PAGE CSS — E-Ticket Pro  ·  RED EDITION
-   Refined · Editorial · Bold
+   CSS HALAMAN AUTENTIKASI — E-Ticket Pro  ·  EDISI MERAH
+   Rapi · Bergaya Majalah · Tegas
    ========================================================================== */
 
 :root {
@@ -351,7 +351,7 @@
     gap: 0.2rem;
 }
 
-/* Form elements */
+/* Elemen formulir */
 .auth-form {
     display: flex;
     flex-direction: column;
@@ -496,7 +496,7 @@
     transition: color 0.3s;
 }
 
-/* Submit */
+/* Tombol kirim */
 .auth-submit-btn {
     display: flex;
     align-items: center;

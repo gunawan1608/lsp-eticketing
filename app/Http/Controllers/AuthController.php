@@ -37,7 +37,7 @@ class AuthController extends Controller
             'role' => User::ROLE_CUSTOMER,
         ]);
 
-        return redirect('/login')->with('success', 'Akun customer berhasil dibuat. Silakan login.');
+        return redirect('/login')->with('success', 'Akun pelanggan berhasil dibuat. Silakan masuk.');
     }
 
     public function postLogin(Request $request)
@@ -55,7 +55,7 @@ class AuthController extends Controller
 
         return back()
             ->withInput($request->only('email'))
-            ->with('error', 'Email atau password tidak sesuai.');
+            ->with('error', 'Email atau kata sandi tidak sesuai.');
     }
 
     public function dashboard(Request $request)

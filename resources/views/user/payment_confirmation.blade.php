@@ -28,7 +28,7 @@
         margin: 0;
     }
 
-    /* Card */
+    /* Kartu */
     .pcard {
         background: var(--surface);
         border: 1.5px solid var(--border);
@@ -48,7 +48,7 @@
 
     .pcard-body { padding: 1.5rem; }
 
-    /* ── Bank / payment method CARD PICKER ── */
+    /* Pemilih kartu metode pembayaran */
     .bank-section-label {
         font-size: 0.8125rem;
         font-weight: 600;
@@ -166,9 +166,9 @@
         transform: scale(1);
     }
 
-    /* Fix: the check mark needs to be sibling of input, inside bank-option */
+    /* Penanda centang harus menjadi saudara input di dalam bank-option */
 
-    /* Form */
+    /* Formulir */
     .form-stack { display: flex; flex-direction: column; gap: 1rem; }
 
     .field { display: flex; flex-direction: column; gap: 0.375rem; }
@@ -208,7 +208,7 @@
 
     .field textarea { resize: vertical; min-height: 80px; }
 
-    /* File drop */
+    /* Area unggah berkas */
     .file-drop {
         position: relative;
         padding: 1.25rem;
@@ -239,7 +239,7 @@
     .proof-preview-wrap.visible { display: block; }
     .proof-preview-wrap img { width: 100%; max-height: 200px; object-fit: cover; border-radius: 0.625rem; border: 1.5px solid var(--border); }
 
-    /* Submit */
+    /* Tombol kirim */
     .submit-btn {
         width: 100%;
         padding: 0.875rem;
@@ -262,7 +262,7 @@
 
     .submit-btn:hover { background: var(--r-700); transform: translateY(-1px); box-shadow: 0 7px 22px rgba(225,29,72,.30); }
 
-    /* Info pills */
+    /* Kapsul informasi */
     .info-pill {
         display: flex;
         align-items: flex-start;
@@ -279,7 +279,7 @@
     .info-pill--green  { background: var(--success-bg); color: var(--success-text); }
     .info-pill svg { flex-shrink: 0; margin-top: 0.1rem; }
 
-    /* Summary card */
+    /* Kartu ringkasan */
     .sum-card {
         background: var(--surface);
         border: 1.5px solid var(--border);
@@ -308,7 +308,7 @@
     .sum-val { font-size: 0.875rem; font-weight: 700; color: var(--n-900); text-align: right; }
     .sum-val--red { color: var(--r-600); font-size: 1.0625rem; }
 
-    /* CTA */
+    /* Ajakan tindakan */
     .cta-btn {
         width: 100%;
         padding: 0.875rem;
@@ -360,7 +360,7 @@
 
 <div class="pay-layout">
 
-    {{-- Left: form --}}
+    {{-- Sisi kiri: formulir --}}
     <div class="pcard">
         <div class="pcard-head">
             <h3>Data Pembayaran</h3>
@@ -395,7 +395,7 @@
                     @csrf
                     <div class="form-stack">
 
-                        {{-- Bank / payment picker --}}
+                        {{-- Pemilih metode pembayaran --}}
                         <div>
                             <span class="bank-section-label">Metode & Tujuan Pembayaran</span>
                             <input type="hidden" name="payment_method" id="payment_method_hidden" value="{{ old('payment_method', $transaction?->payment_method) }}">
@@ -409,7 +409,7 @@
                                             <img src="{{ asset('assets/bca.jpg') }}" alt="Logo BCA">
                                         </div>
                                         <span class="bank-card__name">BCA</span>
-                                        <span class="bank-card__num">1234-5678-90<br>a.n. E-Ticket Pro</span>
+                                        <span class="bank-card__num">202322076<br>a.n. E-Ticket Pro</span>
                                     </div>
                                     <div class="bank-card__check">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -424,7 +424,7 @@
                                             <img src="{{ asset('assets/mandiri.png') }}" alt="Logo Bank Mandiri">
                                         </div>
                                         <span class="bank-card__name">Mandiri</span>
-                                        <span class="bank-card__num">9876-5432-10<br>a.n. E-Ticket Pro</span>
+                                        <span class="bank-card__num">202322076<br>a.n. E-Ticket Pro</span>
                                     </div>
                                     <div class="bank-card__check">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -432,14 +432,14 @@
                                 </label>
 
                                 <label class="bank-option">
-                                    <input type="radio" name="_payment_pick" value="QRIS / E-Wallet"
-                                        {{ old('payment_method', $transaction?->payment_method) === 'QRIS / E-Wallet' ? 'checked' : '' }}>
+                                    <input type="radio" name="_payment_pick" value="QRIS / Dompet Digital"
+                                        {{ old('payment_method', $transaction?->payment_method) === 'QRIS / Dompet Digital' ? 'checked' : '' }}>
                                     <div class="bank-card">
                                         <div class="bank-card__icon bank-card__icon--qris">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><path d="M14 14h2v2h-2zM18 14h2v2h-2zM14 18h2v2h-2zM18 18h2v2h-2z"/></svg>
                                         </div>
                                         <span class="bank-card__name">QRIS</span>
-                                        <span class="bank-card__num">Scan & Pay<br>E-Wallet</span>
+                                        <span class="bank-card__num">Pindai & Bayar<br>Dompet Digital</span>
                                     </div>
                                     <div class="bank-card__check">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -457,7 +457,7 @@
                         </div>
 
                         <div class="field">
-                            <label for="payer_email">Email</label>
+                            <label for="payer_email">Alamat Email</label>
                             <input type="email" id="payer_email" name="payer_email"
                                 value="{{ old('payer_email', $transaction?->payer_email ?? $booking->user->email) }}"
                                 placeholder="nama@email.com" required>
@@ -468,13 +468,6 @@
                             <input type="text" id="payer_phone" name="payer_phone"
                                 value="{{ old('payer_phone', $transaction?->payer_phone) }}"
                                 placeholder="08xxxxxxxxxx" required>
-                        </div>
-
-                        <div class="field d-none" id="account-number-group">
-                            <label for="payer_account_number">Nomor Rekening Pengirim</label>
-                            <input type="text" id="payer_account_number" name="payer_account_number"
-                                value="{{ old('payer_account_number', $transaction?->payer_account_number) }}"
-                                placeholder="Nomor rekening Anda">
                         </div>
 
                         <div class="field">
@@ -489,7 +482,7 @@
                                 <div class="file-drop-hint">JPG, PNG, WEBP · Maks 2 MB</div>
                             </div>
                             <div class="proof-preview-wrap" id="proof-preview-wrap">
-                                <img src="" alt="Preview" id="proof-preview">
+                                <img src="" alt="Pratinjau" id="proof-preview">
                             </div>
                         </div>
 
@@ -509,9 +502,9 @@
         </div>
     </div>
 
-    {{-- Right: summary --}}
+    {{-- Sisi kanan: ringkasan --}}
     <div class="sum-card">
-        <div class="sum-head"><h3>Ringkasan Order</h3></div>
+        <div class="sum-head"><h3>Ringkasan Pesanan</h3></div>
         <div class="sum-body">
             <div class="sum-row">
                 <span class="sum-key">Tiket</span>
@@ -543,6 +536,12 @@
                 <span class="sum-key">Status</span>
                 <span class="sum-val">{{ $transaction?->payment_status ?? 'Belum ada transaksi' }}</span>
             </div>
+            @if(str_starts_with((string) old('payment_method', $transaction?->payment_method), 'Transfer Bank'))
+            <div class="sum-row">
+                <span class="sum-key">No. Rekening Perusahaan</span>
+                <span class="sum-val">202322076</span>
+            </div>
+            @endif
             <div class="sum-row">
                 <span class="sum-key">Total Bayar</span>
                 <span class="sum-val sum-val--red">Rp {{ number_format($booking->total_price, 0, ',', '.') }}</span>
@@ -565,30 +564,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const previewWrap = document.getElementById('proof-preview-wrap');
     const preview     = document.getElementById('proof-preview');
     const fileLabel   = document.getElementById('file-drop-label');
-    const accGroup    = document.getElementById('account-number-group');
-    const accInput    = document.getElementById('payer_account_number');
     const methodHid   = document.getElementById('payment_method_hidden');
     const radios      = document.querySelectorAll('input[name="_payment_pick"]');
     const sound       = document.getElementById('payment-sound');
 
-    // Sync hidden input + show/hide account field
+    // Samakan input tersembunyi
     function syncMethod(val) {
         methodHid.value = val;
-        const needsAcc = val.startsWith('Transfer Bank');
-        accGroup.classList.toggle('d-none', !needsAcc);
-        accInput.required = needsAcc;
-        if (!needsAcc) accInput.value = '';
     }
 
     radios.forEach(r => {
         r.addEventListener('change', () => syncMethod(r.value));
     });
 
-    // Init on load
+    // Inisialisasi saat halaman dimuat
     const checked = document.querySelector('input[name="_payment_pick"]:checked');
     if (checked) syncMethod(checked.value);
 
-    // File preview
+    // Pratinjau berkas
     if (proofInput && preview) {
         proofInput.addEventListener('change', function () {
             const [file] = this.files;
@@ -599,7 +592,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Submit
+    // Kirim formulir
     if (form && submitBtn) {
         submitBtn.addEventListener('click', function () {
             if (!form.reportValidity()) return;

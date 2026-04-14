@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'E-Ticket Pro')</title>
 
-    <!-- Google Fonts -->
+    <!-- Font Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- CSS -->
+    <!-- Berkas gaya -->
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 
     @yield('styles')

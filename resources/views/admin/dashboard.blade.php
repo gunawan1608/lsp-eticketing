@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard Admin — E-Ticket Pro')
+@section('title', 'Dasbor Admin - E-Ticket Pro')
 
 @section('styles')
     <style>
-        /* ── Stat cards override ── */
+        /* Penyesuaian kartu statistik */
         .stats-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -79,7 +79,7 @@
             color: var(--ink);
         }
 
-        /* ── Section header inside card ── */
+        /* Judul bagian di dalam kartu */
         .section-label {
             display: flex;
             align-items: center;
@@ -97,12 +97,12 @@
             flex-shrink: 0;
         }
 
-        /* ── Table row hover ── */
+        /* Efek sorot baris tabel */
         .table tbody tr {
             transition: background .1s;
         }
 
-        /* ── Action btns ── */
+        /* Tombol aksi */
         .btn-edit {
             padding: 5px 12px;
             font-size: 12px;
@@ -163,7 +163,7 @@
             background: var(--r-700);
         }
 
-        /* ── Status chip in table ── */
+        /* Lencana status di tabel */
         .chip {
             display: inline-flex;
             align-items: center;
@@ -205,7 +205,7 @@
             border-color: #e4e4e7;
         }
 
-        /* ── Paginator override ── */
+        /* Penyesuaian paginator */
         .pg-wrap {
             padding: .875rem 1.25rem;
             border-top: 1px solid var(--stone-3);
@@ -213,7 +213,7 @@
             justify-content: flex-end;
         }
 
-        /* ── Search toolbar ── */
+        /* Bilah pencarian */
         .stbar {
             padding: .75rem 1.25rem;
             border-bottom: 1px solid var(--stone-3);
@@ -251,7 +251,6 @@
             padding: 0 14px;
         }
 
-        /* ── Proof btn ── */
         .proof-btn {
             display: inline-flex;
             align-items: center;
@@ -264,10 +263,70 @@
             background: var(--info-bg);
             border: 1.5px solid var(--info-border);
             transition: background .15s;
+            cursor: pointer;
+            font-family: inherit;
         }
 
         .proof-btn:hover {
             background: #dbeafe;
+        }
+
+        /* Modal styling */
+        .proof-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.6); 
+            backdrop-filter: blur(4px);
+            align-items: center; 
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .proof-modal-content {
+            background: var(--white); 
+            padding: 24px; 
+            border-radius: var(--r-lg); 
+            max-width: 500px; 
+            width: 100%;
+            text-align: center; 
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            animation: modalFadeIn 0.2s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(10px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .proof-modal-close {
+            position: absolute; 
+            top: 12px; 
+            right: 16px; 
+            cursor: pointer; 
+            font-size: 24px; 
+            line-height: 1;
+            font-weight: bold;
+            color: var(--ink-5);
+            transition: color 0.15s;
+        }
+        
+        .proof-modal-close:hover {
+            color: var(--danger);
+        }
+
+        .proof-modal-img {
+            max-width: 100%; 
+            max-height: 60vh; 
+            display: block; 
+            margin: 0 auto 20px;
+            border-radius: var(--r-md);
+            border: 1px solid var(--stone-3);
         }
 
         @media (max-width: 900px) {
@@ -286,11 +345,11 @@
 
 @section('content')
 
-{{-- Page header --}}
+{{-- Kepala halaman --}}
 <div class="page-header">
     <div>
         <h1 class="page-title">Panel Admin</h1>
-        <p class="page-subtitle">Kelola jadwal penerbangan dan transaksi customer</p>
+        <p class="page-subtitle">Kelola jadwal penerbangan dan transaksi pelanggan</p>
     </div>
     <a href="{{ url('/admin/schedules/create') }}" class="btn btn-primary">
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
@@ -326,7 +385,7 @@
             </svg>
         </div>
         <div class="scard-info">
-            <div class="scard-label">Menunggu Approval</div>
+            <div class="scard-label">Menunggu Persetujuan</div>
             <div class="scard-value">{{ $pendingApprovals }}</div>
         </div>
     </div>
@@ -345,7 +404,7 @@
     </div>
 </div>
 
-{{-- Schedules table --}}
+{{-- Tabel jadwal --}}
 <div class="card">
     <div class="card-header">
         <div class="section-label">
@@ -365,7 +424,7 @@
             <button type="submit" class="btn btn-primary">Cari</button>
             @if(filled($scheduleSearch ?? ''))
                 <a href="{{ route('dashboard', array_filter(['transaction_search' => $transactionSearch ?? null])) }}"
-                    class="btn btn-secondary">Reset</a>
+                    class="btn btn-secondary">Atur Ulang</a>
             @endif
         </form>
     </div>
@@ -419,7 +478,7 @@
                             </td>
                             <td style="text-align:center;">
                                 <div class="actions" style="justify-content:center;">
-                                    <a href="{{ url('/admin/schedules/edit/' . $s->id) }}" class="btn-edit">Edit</a>
+                                    <a href="{{ url('/admin/schedules/edit/' . $s->id) }}" class="btn-edit">Ubah</a>
                                     <a href="{{ url('/admin/schedules/delete/' . $s->id) }}" class="btn-del"
                                         onclick="return confirm('Hapus jadwal ini?')">Hapus</a>
                                 </div>
@@ -435,12 +494,12 @@
     @endif
 </div>
 
-{{-- Transactions table --}}
+{{-- Tabel transaksi --}}
 <div class="card section-gap">
     <div class="card-header">
         <div class="section-label">
             <span class="section-label-dot"></span>
-            Transaksi Customer
+            Transaksi Pelanggan
         </div>
     </div>
 
@@ -451,11 +510,11 @@
                 <input type="hidden" name="schedule_search" value="{{ $scheduleSearch }}">
             @endif
             <input type="text" name="transaction_search" value="{{ $transactionSearch ?? '' }}" class="stbar-input"
-                placeholder="Cari customer, kode, status…">
+                placeholder="Cari pelanggan, kode, status...">
             <button type="submit" class="btn btn-primary">Cari</button>
             @if(filled($transactionSearch ?? ''))
                 <a href="{{ route('dashboard', array_filter(['schedule_search' => $scheduleSearch ?? null])) }}"
-                    class="btn btn-secondary">Reset</a>
+                    class="btn btn-secondary">Atur Ulang</a>
             @endif
         </form>
     </div>
@@ -469,7 +528,7 @@
                     <line x1="2" y1="10" x2="22" y2="10" />
                 </svg>
             </div>
-            Belum ada transaksi dari customer.
+            Belum ada transaksi dari pelanggan.
         </div>
     @else
     <div class="table-wrap">
@@ -477,7 +536,7 @@
             <thead>
                 <tr>
                     <th>Tiket</th>
-                    <th>Customer</th>
+                    <th>Pelanggan</th>
                     <th>Penerbangan</th>
                     <th>Pembayaran</th>
                     <th>Bukti</th>
@@ -519,7 +578,7 @@
                     </td>
                     <td>
                         @if($transaction?->payment_proof_url)
-                            <a href="{{ $transaction->payment_proof_url }}" target="_blank" class="proof-btn">
+                            <button type="button" onclick="showProofModal('{{ $transaction->payment_proof_url }}')" class="proof-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -527,7 +586,7 @@
                                     <circle cx="12" cy="12" r="3" />
                                 </svg>
                                 Lihat
-                            </a>
+                            </button>
                         @else
                             <span class="td-sub">Belum ada</span>
                         @endif
@@ -544,9 +603,9 @@
                     <td style="text-align:center;">
                         @if($transaction?->isAwaitingApproval())
                             <form action="{{ route('admin.bookings.approve', $b) }}" method="POST"
-                                onsubmit="return confirm('Approve transaksi ini?');">
+                                onsubmit="return confirm('Setujui transaksi ini?');">
                                 @csrf
-                                <button type="submit" class="btn-approve">Approve</button>
+                                <button type="submit" class="btn-approve">Setujui</button>
                             </form>
                         @elseif($transaction?->isApproved())
                             <span class="td-sub">Disetujui</span>
@@ -564,5 +623,31 @@
     </div>
     @endif
 </div>
+
+{{-- Modal Pembuktian --}}
+<div id="proofModal" class="proof-modal" onclick="if(event.target === this) closeProofModal()">
+    <div class="proof-modal-content">
+        <span onclick="closeProofModal()" class="proof-modal-close">&times;</span>
+        <h3 style="margin-top:0; margin-bottom:16px; font-size:16px; color:var(--ink);">Bukti Pembayaran</h3>
+        <img id="proofImage" src="" alt="Bukti Pembayaran" class="proof-modal-img" />
+        <div>
+            <a id="proofDownload" href="" target="_blank" class="btn btn-primary" style="display:inline-flex; width:auto;">Buka di Tab Baru</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function showProofModal(url) {
+    document.getElementById('proofImage').src = url;
+    document.getElementById('proofDownload').href = url;
+    document.getElementById('proofModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProofModal() {
+    document.getElementById('proofModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+</script>
 
 @endsection
